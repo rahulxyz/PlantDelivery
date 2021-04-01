@@ -9,5 +9,4 @@ class MultitierArchApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

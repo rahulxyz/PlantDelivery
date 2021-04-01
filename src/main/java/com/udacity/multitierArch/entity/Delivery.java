@@ -23,13 +23,24 @@ public class Delivery {
     @Nationalized
     private String recipientName;
 
+    @Column(name = "address_full", length = 500)
+    private String address;
+
+    private LocalDateTime deliveryTime;
+
     @Type(type="yes_no")
-    private Boolean completed;
+    private Boolean completed=false;
 
     @OneToMany(fetch = FetchType.LAZY ,mappedBy = "delivery", cascade = CascadeType.ALL)
     private List<Plant> plantList;
 
     public Delivery(){}
+
+    public Delivery(String name, String address, LocalDateTime deliveryTime) {
+        this.recipientName = name;
+        this.address =  address;
+        this.deliveryTime = deliveryTime;
+    }
 
 
     public Long getId() {
